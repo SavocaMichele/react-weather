@@ -1,0 +1,19 @@
+.Hourly {
+    width: 110px;
+}
+
+.Daily {
+    display: grid;
+    grid-template-columns: 1fr 90px 1fr;
+    gap: var(--ui-inset-xl);
+    align-items: center;
+    padding: var(--ui-inset-md);
+
+    .Temperature {
+        display: grid;
+        grid-template-columns: 25px 25px;
+        gap: var(--ui-inset-xs);
+        align-items: center;
+        justify-content: flex-end;
+    }
+}

@@ -1,0 +1,157 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    /* ===== NEUTRAL COLORS ===== */
+    --ui-color-neutral-00:          #FFFFFF;
+    --ui-color-neutral-05:          #F8FAFC;
+    --ui-color-neutral-10:          #F1F5F9;
+    --ui-color-neutral-20:          #E2E8F0;
+    --ui-color-neutral-30:          #CBD5E1;
+    --ui-color-neutral-40:          #90A1B9;
+    --ui-color-neutral-50:          #62748E;
+    --ui-color-neutral-60:          #475569;
+    --ui-color-neutral-70:          #334155;
+    --ui-color-neutral-80:          #1E293B;
+    --ui-color-neutral-90:          #0F172A;
+    --ui-color-neutral-95:          #050505;
+    --ui-color-neutral-100:         #000000;
+
+
+    /* ===== ACCENT COLORS ===== */
+    --ui-color-primary-10:          #DBEAFE;
+    --ui-color-primary-30:          #60A5FA;
+    --ui-color-primary-60:          #2B7FFF;
+    --ui-color-primary-70:          #1D4ED8;
+    --ui-color-primary-90:          #1E3A8A;
+
+    --ui-color-secondary-40:        #22D3EE;
+
+    --ui-color-warning-10:          rgba(255, 105, 0, 0.10);
+    --ui-color-warning-60:          #FF6900;
+
+    --ui-color-success-40:          #4ADE80;
+    --ui-color-success-50:          #22C55E;
+    --ui-color-success-60:          #16A34A;
+
+    --ui-color-error-10:            #FEE2E2;
+    --ui-color-error-50:            #EF4444;
+    --ui-color-error-60:            #DC2626;
+
+
+    /* ==== GLASSMORPHISM ALPHA ==== */
+    --ui-glass-white-05:            rgba(255, 255, 255, 0.05);
+    --ui-glass-white-10:            rgba(255, 255, 255, 0.10);
+    --ui-glass-white-20:            rgba(255, 255, 255, 0.20);
+    --ui-glass-white-40:            rgba(255, 255, 255, 0.40);
+    --ui-glass-white-60:            rgba(255, 255, 255, 0.60);
+
+    --ui-glass-black-05:            rgba(0, 0, 0, 0.05);
+    --ui-glass-black-10:            rgba(0, 0, 0, 0.10);
+    --ui-glass-black-20:            rgba(0, 0, 0, 0.20);
+    --ui-glass-black-40:            rgba(0, 0, 0, 0.40);
+
+
+    /* ==== UI SPACING ==== */
+    --ui-inset-xs:                  4px;
+    --ui-inset-sm:                  8px;
+    --ui-inset-md:                  12px;
+    --ui-inset-lg:                  16px;
+    --ui-inset-xl:                  20px;
+    --ui-inset-2xl:                 24px;
+    --ui-inset-3xl:                 32px;
+    --ui-inset-4xl:                 40px;
+    --ui-inset-5xl:                 48px;
+
+
+    /* ==== BORDER ==== */
+    --ui-border-radius-xs:          4px;
+    --ui-border-radius-sm:          8px;
+    --ui-border-radius-md:          12px;
+    --ui-border-radius-lg:          16px;
+    --ui-border-radius-xl:          24px;
+    --ui-border-radius-full:        9999px;
+
+
+    /** ==== TYPOGRAPHY ===== */
+    --ui-font-body:                 Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --ui-font-size-xs:              12px;
+    --ui-font-size-sm:              14px;
+    --ui-font-size-md:              16px;
+    --ui-font-size-lg:              18px;
+    --ui-font-size-xl:              20px;
+    --ui-font-size-2xl:             24px;
+    --ui-font-size-3xl:             30px;
+    --ui-font-size-4xl:             36px;
+    --ui-font-size-5xl:             48px;
+    --ui-font-size-7xl:             72px;
+    --ui-font-size-8xl:             96px;
+
+    --ui-font-weight-light:         300;
+    --ui-font-weight-normal:        400;
+    --ui-font-weight-medium:        500;
+    --ui-font-weight-semibold:      600;
+    --ui-font-weight-bold:          700;
+
+    --ui-font-color-primary:        var(--ui-color-neutral-90);
+    --ui-font-color-secondary:      var(--ui-color-neutral-60);
+    --ui-font-color-tertiary:       var(--ui-color-neutral-50);
+    --ui-font-color-light:          var(--ui-color-neutral-40);
+
+
+    /* ==== TRANSITIONS ==== */
+    --ui-transition-fast:           150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --ui-transition-base:           200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --ui-transition-slow:           300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --ui-transition-slower:         500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+    /* ==== UI COMPONENTS ==== */
+    --ui-sidebar-width:             80px;
+    --ui-right-panel-width:         380px;
+    --ui-header-height:             calc(46px + var(--ui-inset-3xl));
+
+
+    /* ==== SHADOWS ==== */
+    --ui-shadow-xs:                 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --ui-shadow-sm:                 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+}
+
+
+html.dark {
+    /* ==== DARK MODE NEUTRAL INVERSION ==== */
+    --ui-color-neutral-00:          #000000;
+    --ui-color-neutral-05:          #050505;
+    --ui-color-neutral-10:          #0a0a0a;
+    --ui-color-neutral-20:          #0f0f0f;
+    --ui-color-neutral-30:          #334155;
+    --ui-color-neutral-40:          #475569;
+    --ui-color-neutral-50:          #62748E;
+    --ui-color-neutral-60:          #90A1B9;
+    --ui-color-neutral-70:          #CBD5E1;
+    --ui-color-neutral-80:          #E2E8F0;
+    --ui-color-neutral-90:          #F1F5F9;
+    --ui-color-neutral-95:          #F8FAFC;
+    --ui-color-neutral-100:         #FFFFFF;
+
+
+    /* ==== GLASSMORPHISM INVERSION ==== */
+    --ui-glass-white-05:            rgba(0, 0, 0, 0.05);
+    --ui-glass-white-10:            rgba(0, 0, 0, 0.10);
+    --ui-glass-white-20:            rgba(0, 0, 0, 0.20);
+    --ui-glass-white-40:            rgba(0, 0, 0, 0.40);
+    --ui-glass-white-60:            rgba(0, 0, 0, 0.60);
+
+    --ui-glass-black-05:            rgba(255, 255, 255, 0.05);
+    --ui-glass-black-10:            rgba(255, 255, 255, 0.10);
+    --ui-glass-black-20:            rgba(255, 255, 255, 0.20);
+    --ui-glass-black-40:            rgba(255, 255, 255, 0.40);
+
+
+
+    /** ==== TYPOGRAPHY INVERSION ===== */
+    --ui-font-color-primary:        var(--ui-color-neutral-100);
+    --ui-font-color-secondary:      var(--ui-color-neutral-60);
+    --ui-font-color-tertiary:       var(--ui-color-neutral-50);
+    --ui-font-color-light:          var(--ui-color-neutral-60);
+}

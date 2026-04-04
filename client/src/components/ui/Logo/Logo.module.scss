@@ -1,0 +1,9 @@
+.Logo {
+    height: 48px;
+    width: 48px;
+    flex-shrink: 0;
+    border-radius: var(--ui-border-radius-md);
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center center;
+}

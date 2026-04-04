@@ -1,0 +1,99 @@
+@use "sass:map";
+
+/*
+  Flex utilities and helpers
+  - Use `@include flex(...)` inside component styles for local composition.
+*/
+
+$flex-directions: (
+    row: row,
+    column: column,
+    row-reverse: row-reverse,
+    column-reverse: column-reverse,
+);
+
+$flex-justify: (
+    flex-start: flex-start,
+    flex-end: flex-end,
+    space-between: space-between,
+    space-around: space-around,
+    space-evenly: space-evenly,
+);
+
+$flex-align: (
+    center: center,
+    stretch: stretch,
+    baseline: baseline,
+    flex-start: flex-start,
+    flex-end: flex-end,
+);
+
+// Maps with keys matching TS prop values in FlexProps.
+$flex-direction-props: (
+    row: row,
+    column: column,
+);
+
+$flex-justify-props: (
+    center: center,
+    flex-start: flex-start,
+    flex-end: flex-end,
+    space-between: space-between,
+    space-around: space-around,
+);
+
+$flex-align-props: (
+    center: center,
+    flex-start: flex-start,
+    flex-end: flex-end,
+    stretch: stretch,
+);
+
+$flex-gaps: (
+    0: 0,
+    xs: var(--ui-inset-xs),
+    sm: var(--ui-inset-sm),
+    md: var(--ui-inset-md),
+    lg: var(--ui-inset-lg),
+    xl: var(--ui-inset-xl),
+    2xl: var(--ui-inset-2xl),
+    3xl: var(--ui-inset-3xl),
+    4xl: var(--ui-inset-4xl),
+    5xl: var(--ui-inset-5xl),
+);
+
+@mixin flex(
+    $dir: row,
+    $justify: start,
+    $align: stretch,
+    $gap: 0,
+    $wrap: nowrap
+) {
+    display: flex;
+    flex-direction: map.get($flex-directions, $dir);
+    justify-content: map.get($flex-justify, $justify);
+    align-items: map.get($flex-align, $align);
+    gap: map.get($flex-gaps, $gap);
+    flex-wrap: $wrap;
+}
+
+%flex {
+    display: flex;
+}
+
+%flex-center {
+    @extend %flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-col {
+    @extend %flex;
+    flex-direction: column;
+}
+
+%flex-between {
+    @extend %flex;
+    justify-content: space-between;
+    align-items: center;
+}

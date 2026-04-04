@@ -1,0 +1,27 @@
+{
+    "name": "react-weather-server",
+    "version": "0.0.0",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SavocaMichele/react-weather.git"
+    },
+    "author": "Michele Savoca",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "dev": "nodemon server.js"
+    },
+    "dependencies": {
+        "express": "^5.2.1",
+        "cors": "^2.8.6",
+        "bcryptjs": "^3.0.3",
+        "jsonwebtoken": "^9.0.3",
+        "sequelize": "^6.37.8",
+        "sqlite3": "^5.1.6",
+        "dotenv": "^17.4.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
+}

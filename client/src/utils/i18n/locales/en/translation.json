@@ -1,0 +1,44 @@
+{
+    "USERNAME"                              : "Username",
+    "USERNAME_PLACEHOLDER"                  : "Enter your username",
+    "EMAIL"                                 : "Email",
+    "EMAIL_PLACEHOLDER"                     : "Enter your email",
+    "PASSWORD"                              : "Password",
+    "PASSWORD_PLACEHOLDER"                  : "Enter your password",
+    "PASSWORD_CONFIRMATION"                 : "Password confirmation",
+    "PASSWORD_CONFIRMATION_PLACEHOLDER"     : "Confirm your password",
+    "SEARCH_LOCATION_PLACEHOLDER"           : "Search for a location...",
+    "WELCOME"                               : "Welcome to react-weather-app!",
+    "WELCOME_BACK"                          : "Welcome back!",
+    "SIGN_IN"                               : "Sign In",
+    "SIGN_UP"                               : "Sign Up",
+    "FORGOT_PASSWORD"                       : "Forgot password?",
+    "DASHBOARD"                             : "Dashboard",
+    "LOCATIONS"                             : "Locations",
+    "FAVORITES"                             : "Favorites",
+    "SETTINGS"                              : "Settings",
+    "CURRENT_LOCATION"                      : "Current location",
+    "FORECAST_TODAY"                        : "Today's forecast",
+    "FORECAST_7DAY"                         : "7-Day forecast",
+    "HIGHLIGHTS_TODAY"                      : "Today's highlights",
+    "WIND_STATUS"                           : "Wind status",
+    "HUMIDITY"                              : "Humidity",
+    "VISIBILITY"                            : "Visibility",
+    "AIR_QUALITY"                           : "Air quality",
+    "FEELS_LIKE"                            : "Feels like",
+    "UV_INDEX"                              : "UV index",
+    "LOCAL_UPDATES"                         : "Local updates",
+
+
+
+
+
+
+
+
+
+
+
+
+    "blob": "blob"
+}

@@ -1,0 +1,57 @@
+
+
+.Layout {
+    display: grid;
+    grid-template-columns: var(--ui-sidebar-width) 1fr;
+    grid-template-areas:
+        "Sidebar Main";
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100%;
+
+
+    .Sidebar {
+        grid-area: Sidebar;
+        background-color: var(--ui-glass-white-40);
+        border-right: 1px solid var(--ui-glass-black-05);
+
+        .LogoWrapper {
+            padding: var(--ui-inset-3xl) 14px;
+            height: 120px;
+        }
+
+        .Navigation {
+            .NavItem {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 48px;
+                width: 48px;
+                border: 1px solid transparent;
+                flex-shrink: 0;
+                border-radius: var(--ui-border-radius-md);
+                color: var(--ui-font-color-light);
+                transition: all var(--ui-transition-fast);
+
+                &:hover,
+                &:focus {
+                    border-color: var(--ui-glass-black-10);
+                    background-color: var(--ui-glass-white-20);
+                    outline: none;
+                    transition: all var(--ui-transition-fast);
+                }
+
+                &:global(.active) {
+                    border-color: var(--ui-color-neutral-100);
+                    background-color: var(--ui-color-neutral-100);
+                    color: var(--ui-color-neutral-00);
+                }
+            }
+        }
+    }
+
+    .Main {
+        grid-area: Main;
+        height: 100%;
+    }
+}

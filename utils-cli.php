@@ -50,7 +50,7 @@ function makeComponent(array $argv): void
     }
 
     $name = ucfirst($name);
-    $basePath = __DIR__ . '/src/components/' . ($isUi ? 'ui/' : '') . $name;
+    $basePath = __DIR__ . '/client/src/components/' . ($isUi ? 'ui/' : '') . $name;
 
     if (!is_dir($basePath)) {
         mkdir($basePath, 0755, true);
@@ -82,7 +82,7 @@ function makePage(array $argv): void
     }
 
     $name = ucfirst($name);
-    $basePath = __DIR__ . '/src/pages/' . $name;
+    $basePath = __DIR__ . '/client/src/pages/' . $name;
 
     if (!is_dir($basePath)) {
         mkdir($basePath, 0755, true);
@@ -113,7 +113,7 @@ function makeContext(array $argv): void
     }
 
     $fileName = strtolower(preg_replace('/(?<!^)[A-Z]/', '-$0', $pascalName));
-    $basePath = __DIR__ . '/src/context';
+    $basePath = __DIR__ . '/client/src/context';
 
     if (!is_dir($basePath)) {
         mkdir($basePath, 0755, true);

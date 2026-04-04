@@ -1,0 +1,40 @@
+.Skeleton {
+    height: 46px;
+    width: 100%;
+    border-radius: var(--ui-border-radius-sm);
+    flex-shrink: 0;
+    background-color: var(--ui-color-neutral-10);
+    animation: infinite 1.5s ease skeleton-loading;
+
+    &.--radius-xs {
+        border-radius: var(--ui-border-radius-xs);
+    }
+    &.--radius-sm {
+        border-radius: var(--ui-border-radius-sm);
+    }
+    &.--radius-md {
+        border-radius: var(--ui-border-radius-md);
+    }
+    &.--radius-lg {
+        border-radius: var(--ui-border-radius-lg);
+    }
+    &.--radius-xl {
+        border-radius: var(--ui-border-radius-xl);
+    }
+
+    &.--is-circle {
+        border-radius: var(--ui-border-radius-full);
+    }
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: var(--ui-color-neutral-10);
+    }
+    50% {
+        background-color: var(--ui-color-neutral-20);
+    }
+    100% {
+        background-color: var(--ui-color-neutral-10);
+    }
+}

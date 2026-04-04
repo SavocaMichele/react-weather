@@ -1,0 +1,71 @@
+@use "../../../assets/styles/flex" as flex;
+
+.Box {
+    @include flex.flex();
+
+    display: inline-flex;
+    background-color: var(--ui-glass-white-20);
+    border: 1px solid var(--ui-glass-black-05);
+    padding: var(--ui-inset-sm);
+    border-radius: var(--ui-border-radius-xl);
+    transition: all var(--ui-transition-slow);
+
+    @each $name, $value in flex.$flex-justify-props {
+        &.--justify-#{$name} {
+            justify-content: $value;
+        }
+    }
+
+    @each $name, $value in flex.$flex-align-props {
+        &.--align-#{$name} {
+            align-items: $value;
+        }
+    }
+
+    @each $name, $value in flex.$flex-direction-props {
+        &.--direction-#{$name} {
+            flex-direction: $value;
+        }
+    }
+
+    @each $name, $value in flex.$flex-gaps {
+        @if $name != 0 {
+            &.--gap-#{$name} {
+                gap: $value;
+            }
+        }
+    }
+
+    &.--wrap {
+        flex-wrap: wrap;
+    }
+
+    &.--width-full {
+        width: 100%;
+    }
+
+    &.--height-full {
+        height: 100%;
+    }
+
+    &.--height-auto {
+        height: auto;
+    }
+
+    // Padding
+    &.--inset-xs {
+        padding: var(--ui-inset-xs);
+    }
+    &.--inset-sm {
+        padding: var(--ui-inset-sm);
+    }
+    &.--inset-md {
+        padding: var(--ui-inset-md);
+    }
+    &.--inset-lg {
+        padding: var(--ui-inset-lg);
+    }
+    &.--inset-xl {
+        padding: var(--ui-inset-xl);
+    }
+}

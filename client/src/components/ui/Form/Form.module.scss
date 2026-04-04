@@ -1,0 +1,121 @@
+.Label {
+    font-family: var(--ui-font-body);
+    font-size: var(--ui-font-size-xs);
+    color: var(--ui-font-color-light);
+    font-weight: var(--ui-font-weight-semibold);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.InputField {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ui-inset-sm);
+
+    &.--align-row {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--ui-inset-md);
+    }
+
+    &.--width-full {
+        width: 100%;
+    }
+
+    .Input {
+        display: flex;
+        align-items: center;
+        gap: var(--ui-inset-md);
+        background-color: var(--ui-glass-white-60);
+        border: 1px solid var(--ui-glass-black-05);
+        border-radius: var(--ui-border-radius-lg);
+        padding: 0 var(--ui-inset-lg);
+        transition: all var(--ui-transition-fast);
+
+        &:hover {
+            border-color: var(--ui-glass-black-10);
+            transition: all var(--ui-transition-fast);
+        }
+
+        &:has(input:focus) {
+            border-color: var(--ui-color-primary-60);
+            transition: all var(--ui-transition-fast);
+        }
+
+        > input {
+            appearance: textfield;
+            background: none;
+            border: none;
+            height: 44px;
+            flex-grow: 1;
+            padding: 0;
+            font-family: var(--ui-font-body);
+            font-size: var(--ui-font-size-sm);
+            color: var(--ui-font-color-primary);
+            border-radius: var(--ui-border-radius-lg);
+
+            &::placeholder {
+                color: var(--ui-font-color-light);
+            }
+
+            &:focus,
+            &:hover {
+                outline: none;
+            }
+        }
+
+        &.--has-start-item {
+            padding: 0 0 0 var(--ui-inset-lg);
+
+            > input {
+                margin-left: -44px;
+                padding: 0 var(--ui-inset-lg) 0 44px;
+            }
+        }
+
+        &.--has-end-item {
+            padding: 0 var(--ui-inset-lg) 0 0;
+
+            > input {
+                margin-right: -44px;
+                padding: 0 44px 0 var(--ui-inset-lg);
+            }
+        }
+    }
+
+
+    &.--hidden {
+        display: none;
+    }
+
+    &.--readonly {
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    &.--disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.6;
+
+        .Input {
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+
+    &.--error {
+        .Input {
+            border-color: var(--ui-color-error-60);
+
+            &:hover {
+                border-color: var(--ui-color-error-50);
+            }
+
+            &:has(input:focus) {
+                border-color: var(--ui-color-error-50);
+            }
+        }
+    }
+}

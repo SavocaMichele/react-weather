@@ -1,0 +1,127 @@
+.Button,
+.IconButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ui-inset-sm);
+    font-family: var(--ui-font-body);
+    font-size: var(--ui-font-size-sm);
+    font-weight: var(--ui-font-weight-medium);
+    color: #FFFFFF;
+    border: 1px solid var(--ui-color-primary-60);
+    background-color: var(--ui-color-primary-60);
+    border-radius: var(--ui-border-radius-lg);
+    height: 46px;
+    padding: 0 var(--ui-inset-lg);
+    cursor: pointer;
+    transition: all var(--ui-transition-fast);
+    flex-shrink: 0;
+
+    &:hover,
+    &:focus {
+        color: #FFFFFF;
+        background-color: var(--ui-color-primary-70);
+        border-color: var(--ui-color-primary-70);
+        transition: all var(--ui-transition-fast);
+        outline: none;
+    }
+
+    // Variants
+    &.--variant-input {
+        color: var(--ui-text-color-primary);
+        background-color: var(--ui-bg-input);
+        border: 1px solid var(--ui-border-base);
+
+        &:hover,
+        &:focus {
+            background-color: var(--ui-bg-input-hover);
+            border-color: var(--ui-border-hover);
+        }
+    }
+    &.--variant-secondary {
+        color: var(--ui-color-neutral-00);
+        background-color: var(--ui-color-neutral-100);
+        border: 1px solid var(--ui-color-neutral-100);
+
+        &:hover,
+        &:focus {
+            background-color: var(--ui-color-neutral-80);
+            border-color: var(--ui-color-neutral-80);
+        }
+    }
+    &.--variant-error {
+        background-color: var(--ui-color-error-60);
+        color: var(--ui-color-error-100);
+        border: 1px solid var(--ui-color-error-100);
+
+        &:hover,
+        &:focus {
+            background-color: var(--ui-color-error-60);
+            border-color: var(--ui-color-error-100);
+        }
+    }
+
+    // Sizes
+    &.--size-sm {
+        height: 32px;
+        padding: 0 10px;
+        font-size: var(--ui-text-size-sm);
+        font-weight: var(--ui-font-weight-semibold);
+        gap: var(--ui-inset-xs);
+    }
+
+    .Spinner {
+        width: 15px;
+        height: 15px;
+        border: 2px solid currentColor;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    &.--disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    &.--width-full {
+        width: 100%;
+    }
+}
+
+
+.IconButton {
+    width: 40px;
+    padding: 0 10px;
+
+    // Variants
+    &.--variant-flush {
+        background-color: transparent;
+        border-color: transparent;
+        color: var(--ui-text-color-secondary);
+
+        &:hover,
+        &:focus {
+            background-color: var(--ui-bg-input);
+            color: var(--ui-text-color-primary);
+        }
+    }
+
+    // Sizes
+    &.--size-sm {
+        width: 32px;
+        padding: 0 9px;
+    }
+}

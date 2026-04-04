@@ -1,0 +1,49 @@
+@use "../../../assets/styles/flex" as flex;
+
+.Stack {
+    @include flex.flex();
+
+    @each $name, $value in flex.$flex-justify-props {
+        &.--justify-#{$name} {
+            justify-content: $value;
+        }
+    }
+
+    @each $name, $value in flex.$flex-align-props {
+        &.--align-#{$name} {
+            align-items: $value;
+        }
+    }
+
+    @each $name, $value in flex.$flex-direction-props {
+        &.--direction-#{$name} {
+            flex-direction: $value;
+        }
+    }
+
+    @each $name, $value in flex.$flex-gaps {
+        @if $name != 0 {
+            &.--gap-#{$name} {
+                gap: $value;
+            }
+        }
+    }
+
+    &.--wrap {
+        flex-wrap: wrap;
+    }
+
+    &.--width-full {
+        width: 100%;
+    }
+    &.--width-grow {
+        flex-grow: 1;
+    }
+
+    &.--height-full {
+        height: 100%;
+    }
+    &.--height-grow {
+        flex-grow: 1;
+    }
+}
