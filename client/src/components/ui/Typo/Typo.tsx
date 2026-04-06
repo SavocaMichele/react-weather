@@ -4,7 +4,7 @@ import React from "react";
 
 
 interface TypoProps extends React.HTMLAttributes<HTMLSpanElement> {
-    color?: "primary" | "secondary" | "tertiary" | "light";
+    color?: "primary" | "secondary" | "tertiary" | "light" | "warning";
     size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "7xl" | "8xl";
     weight?: "light" | "normal" | "medium" | "semibold" | "bold";
     align?: "left" | "center" | "right";

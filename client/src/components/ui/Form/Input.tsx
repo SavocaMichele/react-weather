@@ -72,6 +72,7 @@ const Input = (props: InputProps) => {
                         {...(props.onChange ? { value: props.value ?? "" } : { defaultValue: props.value ?? "" })}
                         placeholder={props.placeholder}
                         onChange={onChange}
+                        onFocus={props.onFocus}
                         required={props.required}
                         readOnly={props.readOnly}
                         disabled={props.disabled}

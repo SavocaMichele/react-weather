@@ -1,5 +1,6 @@
 import * as React from "react";
 import Activity from "./Activity";
+import Alert from "./Alert";
 import ArrowShortDown from "./ArrowShortDown";
 import ArrowShortLeft from "./ArrowShortLeft";
 import ArrowShortRight from "./ArrowShortRight";
@@ -44,6 +45,7 @@ export type IconComponent = React.FC<React.SVGProps<SVGSVGElement>>;
 
 const iconMap: Record<string, IconComponent> = {
   "Activity": Activity,
+  "Alert": Alert,
   "ArrowShortDown": ArrowShortDown,
   "ArrowShortLeft": ArrowShortLeft,
   "ArrowShortRight": ArrowShortRight,

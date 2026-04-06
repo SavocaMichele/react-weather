@@ -12,17 +12,28 @@ import {useTranslation} from "react-i18next";
 import Box from "@ui/Box/Box.tsx";
 import NewsPanel from "@/pages/Dashboard/inc/NewsPanel.tsx";
 import Daily from "@/components/Forecast/Daily.tsx";
+import {useLocationContext} from "@/context/location-context.tsx";
+import {useWeatherByCoordsQuery} from "@/hooks/useWeatherByCoordsQuery.ts";
 
 
 const Dashboard = () => {
     const { t } = useTranslation();
+    const { location } = useLocationContext();
 
     const {
-        hasCurrentLocation,
-        weather: data,
-        isWeatherLoading: isLoading,
+        weather: currentWeather,
+        isWeatherLoading: isCurrentLoading,
+        isLocating,
         refreshCurrentLocation
     } = useCurrentLocationWeather();
+
+
+    const searchCoords = location.source === "search" ? location.coords : null;
+    const {data: searchWeather, isLoading: isSearchLoading} = useWeatherByCoordsQuery(searchCoords?.lat!, searchCoords?.lon!);
+
+
+    const data = searchCoords ? searchWeather : currentWeather;
+    const isLoading = searchCoords ? isSearchLoading : isCurrentLoading;
 
 
     return (
@@ -30,9 +41,8 @@ const Dashboard = () => {
 
             <Stack flexDirection={"column"} gap={"5xl"} className={styles.Content}>
                 <Header
-                    currentLocation={hasCurrentLocation}
                     onCurrentLocationClick={refreshCurrentLocation}
-                    isFetchingCurrentLocation={isLoading}
+                    isFetchingCurrentLocation={isLocating}
                 />
 
                 <Stack flexDirection={"column"} gap={"5xl"} height={"grow"}>
@@ -57,12 +67,21 @@ const Dashboard = () => {
                                     <>
                                         <Stack gap={"sm"} alignItems={"center"}>
                                             <Icon icon={"Geo"} color={"primary"} size={"sm"} />
-                                            <Typo color={"light"} size={"xl"} weight={"medium"}>{data?.location?.local_names?.en}, {data?.location?.country}</Typo>
+                                            <Typo color={"light"} size={"xl"} weight={"medium"}>{data?.location?.local_names?.en || data?.location?.name}, {data?.location?.country}</Typo>
                                         </Stack>
 
                                         <Stack flexDirection={"column"} gap={"md"}>
                                             <Typo size={"5xl"} weight={"semibold"}>{transformDate(data?.current.dt!)}</Typo>
-                                            <Typo transform={"capitalize"} color={"light"} size={"lg"} weight={"medium"}>{data?.current.weather[0].description}</Typo>
+                                            <Stack alignItems={"center"} gap={"2xl"}>
+                                                <Typo transform={"capitalize"} color={"light"} size={"lg"} weight={"medium"}>{data?.current.weather[0].description}</Typo>
+
+                                                {data?.alerts && data.alerts.map((alert, index) => (
+                                                    <Stack alignItems={"center"} gap={"sm"} key={index}>
+                                                        <Icon icon={"Alert"} color={"warning"} size={"sm"} />
+                                                        <Typo color={"warning"} weight={"semibold"}>{alert.description}</Typo>
+                                                    </Stack>
+                                                ))}
+                                            </Stack>
                                         </Stack>
                                     </>
                                 )}
@@ -258,7 +277,7 @@ const Dashboard = () => {
                 </Stack>
             </Stack>
 
-            <NewsPanel location={data?.location?.local_names?.en} />
+            <NewsPanel location={data?.location?.local_names?.en || data?.location?.name} />
 
         </section>
     );

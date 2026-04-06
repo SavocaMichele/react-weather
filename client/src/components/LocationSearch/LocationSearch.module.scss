@@ -1,0 +1,16 @@
+.LocationOption {
+    padding: var(--ui-inset-sm) var(--ui-inset-md);
+    border-radius: var(--ui-border-radius-sm);
+    transition: all var(--ui-transition-fast);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--ui-glass-black-05);
+    }
+}
+
+.LocationNoResult {
+    padding: var(--ui-inset-sm) var(--ui-inset-md);
+    border-radius: var(--ui-border-radius-sm);
+    background-color: var(--ui-color-primary-10);
+}

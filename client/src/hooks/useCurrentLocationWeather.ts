@@ -1,5 +1,6 @@
 import React from "react";
 import {useWeatherByCoordsQuery} from "@/hooks/useWeatherByCoordsQuery.ts";
+import { useLocationContext } from "@/context/location-context";
 
 const DEFAULT_COORDS = { lat: 40.7128, lon: -74.0060 } as const;
 
@@ -9,6 +10,7 @@ export const useCurrentLocationWeather = () => {
     const [isLocating, setIsLocating]                   = React.useState<boolean>(false);
     const [locationError, setLocationError]             = React.useState<string | null>(null);
 
+    const { setCurrentLocation } = useLocationContext();
 
     const getCurrentLocation = React.useCallback(() => {
         if (!navigator.geolocation) {
@@ -24,14 +26,17 @@ export const useCurrentLocationWeather = () => {
 
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                setCoords({
+                const nextCoords = {
                     lat: position.coords.latitude,
                     lon: position.coords.longitude,
-                });
+                } as const;
 
+                setCoords(nextCoords);
                 setHasCurrentLocation(true);
                 setLocationError(null);
                 setIsLocating(false);
+
+                setCurrentLocation(nextCoords);
             },
             (error) => {
                 console.error("Error getting location:", error);
@@ -45,7 +50,7 @@ export const useCurrentLocationWeather = () => {
                 timeout: 20000,
             }
         );
-    }, []);
+    }, [setCurrentLocation]);
 
 
     React.useEffect(() => {
@@ -67,4 +72,3 @@ export const useCurrentLocationWeather = () => {
         ...query,
     } as const;
 };
-

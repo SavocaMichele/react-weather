@@ -1,34 +1,32 @@
 import styles from "./../Dashboard.module.scss";
 import Stack from "@ui/Stack/Stack.tsx";
-import Input from "@ui/Form/Input.tsx";
 import {useTranslation} from "react-i18next";
 import {Icon} from "@ui/Icon/Icon.tsx";
 import Button from "@ui/Button/Button.tsx";
+import LocationSearch from "@/components/LocationSearch/LocationSearch.tsx";
+import { useLocationContext } from "@/context/location-context";
 
 
 type HeaderProps = {
-    currentLocation: boolean;
     onCurrentLocationClick: () => void;
     isFetchingCurrentLocation: boolean;
 };
 
-const Header = ({ currentLocation, onCurrentLocationClick, isFetchingCurrentLocation }: HeaderProps) => {
+const Header = ({onCurrentLocationClick, isFetchingCurrentLocation }: HeaderProps) => {
     const { t } = useTranslation();
+    const { location } = useLocationContext();
+
+    const isUsingCurrentLocation = location.source === "current";
 
     return (
         <header className={styles.Header}>
             <Stack alignItems={"center"} width={"full"} justifyContent={"space-between"}>
-                <Input
-                    type={"search"}
-                    name={"search_location"}
-                    placeholder={t("SEARCH_LOCATION_PLACEHOLDER")}
-                    startItem={<Icon icon={"Search"} size={"sm"} color={"light"} />}
-                />
+                <LocationSearch />
 
                 <Button
                     value={t("CURRENT_LOCATION")}
                     variant={"secondary"}
-                    startItem={<Icon icon={currentLocation ? "Navigation" : "NavigationOff"} size={"sm"} />}
+                    startItem={<Icon icon={isUsingCurrentLocation ? "Navigation" : "NavigationOff"} size={"sm"} />}
                     onClick={onCurrentLocationClick}
                     loading={isFetchingCurrentLocation}
                 />

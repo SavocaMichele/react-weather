@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import {login, register, user} from "./Controller/UserController.js";
 import {getWeather} from "./Controller/WeatherController.js";
 import {getNews} from "./Controller/NewsController.js";
+import {getCoordsByName} from "./Controller/LocationController.js";
 
 dotenv.config();
 const app  = express();
@@ -24,6 +25,8 @@ app.post("/api/auth/user", authMiddleware, user)
 
 app.get("/api/weather", getWeather);
 app.get("/api/news", getNews);
+
+app.get("/api/location", getCoordsByName);
 
 
 // Start Server

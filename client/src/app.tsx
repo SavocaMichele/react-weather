@@ -10,6 +10,7 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 
 import "./utils/i18n/i18n.ts";
 import "./assets/styles/app.scss";
+import {LocationContextProvider} from "@/context/location-context.tsx";
 
 
 const root = document.getElementById("root")!;
@@ -23,9 +24,11 @@ ReactDOM.createRoot(root).render(
             <ReactQueryDevtools />
 
             <TooltipProvider>
-                <UserContextProvider>
-                    <Router />
-                </UserContextProvider>
+                <LocationContextProvider>
+                    <UserContextProvider>
+                        <Router />
+                    </UserContextProvider>
+                </LocationContextProvider>
             </TooltipProvider>
         </QueryClientProvider>
     </StrictMode>

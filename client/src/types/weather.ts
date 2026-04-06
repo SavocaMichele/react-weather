@@ -102,7 +102,15 @@ export interface WeatherData {
         local_names?: {
             [key: string]: string;
         }
-    }
+    };
+    alerts?: {
+        sender_name: string;
+        event: string;
+        start: number;
+        end: number;
+        description: string;
+        tags: string[];
+    }[];
 }
 
 
