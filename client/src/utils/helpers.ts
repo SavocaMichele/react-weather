@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 /**
  * Transforms a date into a human-readable format.
  *
@@ -89,7 +91,7 @@ export const fetchApi = async (method: "GET" | "POST" | "DELETE", path: string, 
         path = path.slice(1);
     }
 
-    const response = await fetch(`/api/${path}`, {
+    const response = await fetch(`${API_URL}/${path}`, {
         method: method,
         headers: {
             "Accept": "application/json",
