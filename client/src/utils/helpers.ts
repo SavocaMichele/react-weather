@@ -81,7 +81,7 @@ export const transformTime = (date: Date | number, returnNow: boolean = false): 
 }
 
 
-export const fetchApi = async (method: "GET" | "POST", path: string, payload?: any) => {
+export const fetchApi = async (method: "GET" | "POST" | "DELETE", path: string, payload?: any) => {
     let token = localStorage.getItem("token");
 
     /** Sanitize path */

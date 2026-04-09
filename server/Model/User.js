@@ -1,4 +1,4 @@
-import {sequelize} from "./index.js";
+import sequelize from "../db.js";
 import {DataTypes} from "sequelize";
 import {compare, hash} from "bcryptjs";
 import jwt from "jsonwebtoken";

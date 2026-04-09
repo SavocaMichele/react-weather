@@ -7,7 +7,7 @@ import clsx from "clsx";
 interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
     icon: IconName;
     color?: "primary" | "light" | "normal" | "warning" | "success";
-    size?: "xs" | "sm" | "md" | "lg" | "4xl" | "8xl";
+    size?: "xs" | "sm" | "md" | "lg" | "4xl" | "7xl" | "8xl";
 }
 
 export const Icon = (props: IconProps) => {

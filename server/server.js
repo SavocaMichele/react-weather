@@ -7,6 +7,7 @@ import {login, register, user} from "./Controller/UserController.js";
 import {getWeather} from "./Controller/WeatherController.js";
 import {getNews} from "./Controller/NewsController.js";
 import {getCoordsByName} from "./Controller/LocationController.js";
+import { getFavorites, addFavorite, removeFavorite } from "./Controller/FavoritesController.js";
 
 dotenv.config();
 const app  = express();
@@ -27,6 +28,10 @@ app.get("/api/weather", getWeather);
 app.get("/api/news", getNews);
 
 app.get("/api/location", getCoordsByName);
+
+app.get("/api/favorites", authMiddleware, getFavorites);
+app.post("/api/favorites", authMiddleware, addFavorite);
+app.delete("/api/favorites/:id", authMiddleware, removeFavorite);
 
 
 // Start Server

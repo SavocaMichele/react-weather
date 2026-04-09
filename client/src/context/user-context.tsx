@@ -2,6 +2,7 @@ import React, { createContext, useContext } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useUserQuery } from "@/hooks/useUserQuery.ts";
 import { fetchApi } from "@/utils/helpers.ts";
+import {useFavoriteLocationQuery} from "@/hooks/useFavoriteLocationQuery.ts";
 
 interface AuthUser {
     id: number;
@@ -9,13 +10,25 @@ interface AuthUser {
     username: string;
 }
 
+export interface FavoriteLocation {
+    id: number;
+    lat: number;
+    lon: number;
+    createdAt: string;
+    updatedAt: string;
+}
+
 interface UserContextProps {
     user: AuthUser | null;
     token: string | null;
+    favorites: FavoriteLocation[];
     login: (email: string, password: string) => Promise<void>;
     register: (username: string, email: string, password: string) => Promise<void>;
     logout: () => void;
+    addFavorite: (lat: number, lon: number) => Promise<void>;
+    removeFavorite: (id: number) => Promise<void>;
     isLoading: boolean;
+    isFavoritesLoading: boolean;
 }
 
 /**
@@ -50,6 +63,10 @@ export function UserContextProvider({ children }: { children: React.ReactNode })
 
     /** Fetch the current user data using the token, if available */
     const { data: user, isLoading: isUserLoading } = useUserQuery();
+
+
+    /** Fetch the current user's favorites when authenticated */
+    const { data: favorites = [], isLoading: isFavoritesLoading } = useFavoriteLocationQuery();
 
 
     /** Persist token and update token state */
@@ -108,16 +125,58 @@ export function UserContextProvider({ children }: { children: React.ReactNode })
     const logout = () => {
         applyToken(null);
         queryClient.setQueryData(["user"], null);
+        queryClient.setQueryData(["favorites"], []);
+    };
+
+
+    /** Add a favorite location for the current user */
+    const addFavoriteMutation = useMutation({
+        mutationFn: async ({ lat, lon }: { lat: number; lon: number }) => {
+            return await fetchApi("POST", "/favorites", { lat, lon }) as Promise<FavoriteLocation>;
+        },
+        onSuccess: async () => {
+            await queryClient.invalidateQueries({ queryKey: ["favorites"] });
+        },
+    });
+
+
+    /** Remove a favorite location by id */
+    const removeFavoriteMutation = useMutation({
+        mutationFn: async (id: number) => {
+            await fetchApi("DELETE", `/favorites/${id}`);
+        },
+        onSuccess: async () => {
+            await queryClient.invalidateQueries({ queryKey: ["favorites"] });
+        },
+    });
+
+
+    const addFavorite = async (lat: number, lon: number) => {
+        await addFavoriteMutation.mutateAsync({ lat, lon });
+    };
+
+    const removeFavorite = async (id: number) => {
+        await removeFavoriteMutation.mutateAsync(id);
     };
 
 
     const values: UserContextProps = {
         user: user ?? null,
         token,
+        favorites,
         login,
         register,
         logout,
-        isLoading: isUserLoading || loginMutation.isPending || registerMutation.isPending,
+        addFavorite,
+        removeFavorite,
+        isLoading:
+            isUserLoading ||
+            loginMutation.isPending ||
+            registerMutation.isPending,
+        isFavoritesLoading:
+            isFavoritesLoading ||
+            addFavoriteMutation.isPending ||
+            removeFavoriteMutation.isPending
     };
 
     return (

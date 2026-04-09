@@ -1,0 +1,35 @@
+.FavoriteButton {
+    background-color: var(--ui-glass-black-10);
+    height: 46px;
+    width: 46px;
+    border-radius: var(--ui-border-radius-md);
+    cursor: pointer;
+
+    > span {
+        color: var(--ui-color-secondary-60);
+
+        > svg {
+            fill: var(--ui-color-secondary-60);
+        }
+    }
+}
+
+.FavoriteFooter {
+    border-top: 1px solid var(--ui-glass-black-10);
+    padding-top: var(--ui-inset-lg);
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: var(--ui-inset-lg);
+
+    .Separator {
+        height: 100%;
+        width: 1px;
+        background-color: var(--ui-glass-black-10);
+    }
+
+    .IconWrapper {
+        padding: 8px;
+        background-color: var(--ui-glass-black-10);
+        border-radius: var(--ui-border-radius-full);
+    }
+}

@@ -11,8 +11,11 @@ import Stack from "@ui/Stack/Stack.tsx";
 import {useLocationContext} from "@/context/location-context.tsx";
 import Skeleton from "@ui/Skeleton/Skeleton.tsx";
 
+interface LocationSearchProps {
+    callback?: (coords: {lat: number, lon: number}) => void;
+}
 
-const LocationSearch = () => {
+const LocationSearch = ({callback}: LocationSearchProps) => {
     const { t } = useTranslation();
     const { setSearchLocation } = useLocationContext();
 
@@ -33,6 +36,10 @@ const LocationSearch = () => {
         setIsPopoverOpen(false);
         setSearchTerm("");
         setSearchLocation(coords);
+
+        if (callback) {
+            callback(coords);
+        }
     }
     
     return (
