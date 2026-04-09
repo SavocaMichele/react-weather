@@ -1,5 +1,5 @@
 .FavoriteButton {
-    background-color: var(--ui-glass-black-10);
+    background-color: var(--ui-glass-black-05);
     height: 46px;
     width: 46px;
     border-radius: var(--ui-border-radius-md);
@@ -15,7 +15,7 @@
 }
 
 .FavoriteFooter {
-    border-top: 1px solid var(--ui-glass-black-10);
+    border-top: 1px solid var(--ui-glass-black-05);
     padding-top: var(--ui-inset-lg);
     display: grid;
     grid-template-columns: 1fr 1px 1fr;
@@ -24,12 +24,12 @@
     .Separator {
         height: 100%;
         width: 1px;
-        background-color: var(--ui-glass-black-10);
+        background-color: var(--ui-glass-black-05);
     }
 
     .IconWrapper {
         padding: 8px;
-        background-color: var(--ui-glass-black-10);
+        background-color: var(--ui-glass-black-05);
         border-radius: var(--ui-border-radius-full);
     }
 }

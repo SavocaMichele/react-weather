@@ -20,7 +20,11 @@ const Favorites = () => {
             <div className={styles.Content}>
                 {isFavoritesLoading
                     ? (
-                        <Favorite.Skeleton />
+                        <>
+                            <Favorite.Skeleton />
+                            <Favorite.Skeleton />
+                            <Favorite.Skeleton />
+                        </>
                     )
                     : (
                         favorites.map((fav, index) => (

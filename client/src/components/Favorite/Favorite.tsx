@@ -152,7 +152,54 @@ const Favorite = ({data, onRemove}: { data: FavoriteLocation, onRemove: (id: num
 
 const FavoriteSkeleton = () => {
     return (
-        <div></div>
+        <Box inset={"xl"} flexDirection={"column"} gap={"lg"}>
+            <Stack flexDirection={"row"} justifyContent={"space-between"} width={"full"}>
+                <Stack flexDirection={"column"} gap={"sm"}>
+                    <Stack gap={"sm"} alignItems={"center"}>
+                        <Icon icon={"Geo"} color={"primary"} size={"sm"} />
+                        <Skeleton height={"20px"} width={"130px"} />
+                    </Stack>
+
+                    <Skeleton height={"31px"} width={"200px"} />
+                </Stack>
+            </Stack>
+
+
+            <Stack justifyContent={"space-between"} alignItems={"center"}>
+                <Stack flexDirection={"column"} gap={"sm"}>
+                    <Stack alignItems={"flex-start"}>
+                        <Skeleton height={"72px"} width={"120px"} />
+                    </Stack>
+
+                    <Skeleton height={"20px"} width={"100px"} />
+                </Stack>
+
+                <Skeleton height={"72px"} width={"72px"} circle />
+            </Stack>
+
+
+            <div className={styles.FavoriteFooter}>
+                <Stack alignItems={"center"} gap={"sm"}>
+                    <Skeleton height={"32px"} width={"32px"} circle />
+
+                    <Stack flexDirection={"column"} gap={"xs"} >
+                        <Skeleton height={"18px"} width={"100px"} />
+                        <Skeleton height={"18px"} width={"65px"} />
+                    </Stack>
+                </Stack>
+
+                <div className={styles.Separator}></div>
+
+                <Stack alignItems={"center"} gap={"sm"}>
+                    <Skeleton height={"32px"} width={"32px"} circle />
+
+                    <Stack flexDirection={"column"} gap={"xs"} >
+                        <Skeleton height={"18px"} width={"100px"} />
+                        <Skeleton height={"18px"} width={"65px"} />
+                    </Stack>
+                </Stack>
+            </div>
+        </Box>
     )
 }
 
