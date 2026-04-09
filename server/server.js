@@ -12,10 +12,24 @@ import { getFavorites, addFavorite, removeFavorite } from "./Controller/Favorite
 dotenv.config();
 const app  = express();
 const PORT  = 3000;
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://weather.msavoca.dev"
+]
 
+const corsConfig = {
+    origin: function(origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true
+}
 
 // Middleware
-app.use(cors());
+app.use(cors(corsConfig));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
