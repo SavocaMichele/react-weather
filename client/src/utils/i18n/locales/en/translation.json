@@ -12,6 +12,7 @@
     "WELCOME_BACK"                          : "Welcome back!",
     "SIGN_IN"                               : "Sign In",
     "SIGN_UP"                               : "Sign Up",
+    "SIGN_OUT"                              : "Sign Out",
     "FORGOT_PASSWORD"                       : "Forgot password?",
     "DASHBOARD"                             : "Dashboard",
     "LOCATIONS"                             : "Locations",
@@ -29,6 +30,12 @@
     "UV_INDEX"                              : "UV index",
     "LOCAL_UPDATES"                         : "Local updates",
     "NO_RESULTS"                            : "No results found",
+    "APP_SETTINGS"                          : "App Settings",
+    "LIGHT_MODE"                            : "Light mode",
+    "DARK_MODE"                             : "Dark mode",
+    "LANG_SETTINGS"                         : "Language settings",
+    "ENGLISH"                               : "English",
+    "GERMAN"                                : "German",
 
 
 

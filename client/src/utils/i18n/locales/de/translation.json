@@ -1,0 +1,52 @@
+{
+    "USERNAME"                              : "Benutzername",
+    "USERNAME_PLACEHOLDER"                  : "Ihr Benutzername",
+    "EMAIL"                                 : "E-Mail",
+    "EMAIL_PLACEHOLDER"                     : "Ihre E-Mail",
+    "PASSWORD"                              : "Passwort",
+    "PASSWORD_PLACEHOLDER"                  : "Ihr Passwort",
+    "PASSWORD_CONFIRMATION"                 : "Passwort bestätigen",
+    "PASSWORD_CONFIRMATION_PLACEHOLDER"     : "Bestätigen Sie Ihr Passwort",
+    "SEARCH_LOCATION_PLACEHOLDER"           : "Nach Standort suchen...",
+    "WELCOME"                               : "Willkommen zur react-weather-app!",
+    "WELCOME_BACK"                          : "Willkommen zurück!",
+    "SIGN_IN"                               : "Einloggen",
+    "SIGN_UP"                               : "Registrieren",
+    "SIGN_OUT"                              : "Ausloggen",
+    "FORGOT_PASSWORD"                       : "Passwort vergessen?",
+    "DASHBOARD"                             : "Dashboard",
+    "LOCATIONS"                             : "Standorte",
+    "FAVORITES"                             : "Favoriten",
+    "SETTINGS"                              : "Einstellungen",
+    "CURRENT_LOCATION"                      : "Mein Standort",
+    "FORECAST_TODAY"                        : "Heutige Vorhersage",
+    "FORECAST_7DAY"                         : "7-Tage Vorhersage",
+    "HIGHLIGHTS_TODAY"                      : "Heutige Highlights",
+    "WIND_STATUS"                           : "Wind Status",
+    "HUMIDITY"                              : "Feuchtigkeit",
+    "VISIBILITY"                            : "Sichtbarkeit",
+    "AIR_QUALITY"                           : "Luft Qualität",
+    "FEELS_LIKE"                            : "Fühlt sich an wie",
+    "UV_INDEX"                              : "UV Index",
+    "LOCAL_UPDATES"                         : "Lokale Updates",
+    "NO_RESULTS"                            : "Keine Ergebnisse gefunden",
+    "APP_SETTINGS"                          : "App Einstellungen",
+    "LIGHT_MODE"                            : "Heller Modus",
+    "DARK_MODE"                             : "Dunkler Modus",
+    "LANG_SETTINGS"                         : "Spracheinstellungen",
+    "ENGLISH"                               : "Englisch",
+    "GERMAN"                                : "Deutsch",
+
+
+
+
+
+
+
+
+
+
+
+
+    "blob": "blob"
+}

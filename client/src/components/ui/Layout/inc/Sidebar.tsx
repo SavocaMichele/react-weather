@@ -25,7 +25,7 @@ const Sidebar = () => {
             <Stack flexDirection={"column"} gap={"4xl"} height={"grow"}>
                 <Stack flexDirection={"column"} alignItems={"center"} gap={"2xl"} height={"grow"} className={styles.Navigation}>
                     <NavItem path={"/"} icon={"Dashboard"} title={t("DASHBOARD")} />
-                    <NavItem path={"/locations"} icon={"Compass"} title={t("LOCATIONS")} />
+                    {/*<NavItem path={"/locations"} icon={"Compass"} title={t("LOCATIONS")} />*/}
                     <NavItem path={"/favorites"} icon={"Heart"} title={t("FAVORITES")} />
                     <NavItem path={"/settings"} icon={"Settings"} title={t("LOCATIONS")} />
                 </Stack>

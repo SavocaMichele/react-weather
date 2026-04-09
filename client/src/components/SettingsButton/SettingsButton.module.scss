@@ -1,0 +1,70 @@
+.SettingsButton {
+    appearance: none;
+
+    display: flex;
+    align-items: center;
+    gap: var(--ui-inset-lg);
+    max-width: 300px;
+    width: 100%;
+
+    font-family: var(--ui-font-body);
+    font-size: var(--ui-font-size-md);
+    color: var(--ui-font-color-light);
+
+    border: none;
+    background: none;
+    border-radius: var(--ui-border-radius-lg);
+    padding: var(--ui-inset-sm);
+    transition: all var(--ui-transition-fast);
+    cursor: pointer;
+
+
+    .Icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background-color: var(--ui-glass-black-10);
+        border-radius: var(--ui-border-radius-md);
+
+        > span {
+            color: inherit;
+        }
+    }
+
+    &:hover {
+        background-color: var(--ui-glass-black-05);
+        transition: all var(--ui-transition-fast);
+    }
+
+    &.--active {
+        background-color: var(--ui-color-neutral-100);
+        color: var(--ui-color-neutral-00);
+
+        .Icon {
+            background-color: var(--ui-glass-white-20);
+        }
+    }
+
+
+    &.--variant-primary {
+        &.--active {
+            background-color: var(--ui-color-primary-60);
+            color: #FFFFFF;
+
+            .Icon {
+                background-color: var(--ui-glass-black-20);
+            }
+        }
+    }
+
+    &.--variant-error {
+        color: var(--ui-color-error-60);
+
+        .Icon {
+            background-color: var(--ui-glass-black-05);
+        }
+    }
+}
