@@ -70,7 +70,7 @@ const Auth = () => {
 
             <div className={styles.Window}>
 
-                <img src={`/src/assets/img/auth_bg_${resolvedAppearance}.png`} alt="Auth" className={styles.Image}/>
+                <img src={`/auth_bg_${resolvedAppearance}.png`} alt="Auth" className={styles.Image}/>
 
                 <Stack flexDirection={"column"} gap={"4xl"} className={styles.Content}>
 
