@@ -101,6 +101,7 @@ export function UserContextProvider({ children }: { children: React.ReactNode })
     /** Method to trigger the login mutation */
     const login = async (email: string, password: string) => {
         await loginMutation.mutateAsync({ email, password });
+        await queryClient.invalidateQueries({ queryKey: ["favorites"] });
     };
 
 
