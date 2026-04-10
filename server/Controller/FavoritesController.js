@@ -5,7 +5,7 @@ export const getFavorites = async (req, res) => {
     try {
         const favorites = await FavoriteLocation.findAll({
             where: { userId: req.userId },
-            exc: ["id", "lat", "lon", "createdAt", "updatedAt"]
+            attributes: ["id", "lat", "lon", "createdAt", "updatedAt"]
         });
 
         res.json(favorites);
